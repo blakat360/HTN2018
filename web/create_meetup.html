@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hack The North 2018</title>
+    <meta name="viewport" content="initial-scale=1.0,
+    width=device-width"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="{% static 'build/css/main.css' %}">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Hack The North 2018</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="meetup.html">Meetups</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Chat</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Donate</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="form-create-meetup" class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+    <h4 class="text-center">Meetup Creation Form</h4>
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        </label>
+        <input id="name" name="name" type="text" class="form-control" />
+    </div> 
+    <div class="form-group">
+        <label for="location">Location:</label>
+        <input id="location" name="location" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="dateof">Date:</label>
+        <input id="dateof" name="dateof" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="starttime">Start Time:</label>
+        <input id="starttime" name="starttime" type="time" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="endtime">End Time:</label>
+        <input id="endtime" name="endtime" type="time" class="form-control" />
+    </div>
+    <button id="btnSubmit" class="btn btn-success">Submit</button>
+</div>
+</div>
+</div>
+
+<!-- Firebase App is always required and must be first -->
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-functions.js"></script>
+
+<!-- Comment out (or don't include) services that you don't want to use -->
+<!-- <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-storage.js"></script> -->
+
+<script>
+  var config = {
+    // ...
+  };
+  firebase.initializeApp(config);
+</script>
+</body>
+<script src="/__/firebase/5.5.0/firebase-app.js"></script>
+<script src="/__/firebase/5.5.0/firebase-auth.js"></script>
+<script src="/__/firebase/5.5.0/firebase-database.js"></script>
+<script src="/__/firebase/5.5.0/firebase-storage.js"></script>
+<script src="/__/firebase/5.5.0/firebase-messaging.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script src="scripts/main.js"></script>
+<script src="scripts/mapsAPI.js"></script>
+<script>
+  $("#btnSubmit").click(function(){
+    var loc = $('#location').val();
+    console.log(loc);
+    getLatitudeLongtitude(loc);
+  });
+  </script>
+</html>
